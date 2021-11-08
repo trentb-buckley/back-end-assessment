@@ -9,7 +9,8 @@ app.use(cors());
 
 app.use(express.json()); // When we want to be able to accept JSON.
 
-const posts = require("./db.json")
+// const posts = require("./db.json")
+const posts = [];
 let globalId = 2
 
 app.get("/api/compliment", (req, res) => {
@@ -65,7 +66,7 @@ const deletePost = (req, res) => {
 }
 
 app.get("/api/posts", getPosts)
-app.post("api/posts", createPost)
+app.post("/api/posts", createPost)
 app.delete("/api/posts/:id", deletePost)
 
 app.listen(4000, () => console.log("Server running on 4000"));
