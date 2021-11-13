@@ -33,4 +33,49 @@ button {
     border: 5px dashed lightskyblue;
     border-radius: 10px;
     margin-top: 20px;
+    display: flex;
+    flex-direction: row;
 }
+#post-btn {
+    height: 60px;
+}
+#post-card {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 400px;
+    bottom: 500px;
+}
+.colored-square {
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+#color-square {
+    height: 80px;
+}
+.delete-btn {
+    margin-left: 40px;
+}
+#picture-btn {
+    height: 80px;
+}
+#fortune-btn {
+    height: 40px;
+}
+#complimentButton {
+    height: 40px;
+}
+.picture {
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+    transition: 4s;
+}
+.picture:hover {
+    transform: rotatex(360deg) rotatey(720deg)
+}
+

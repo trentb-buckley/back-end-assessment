@@ -42,31 +42,52 @@ app.get("/api/fortune", (req, res) => {
   res.status(200).send(randomFortune);
   
 });
+app.get("/api/post", (req, res) => {
+  const posts = ["Today was a good day",
+  "Today was alright",
+   "Today was average",
+       "Today was not very good"];
+  let randomIndex = Math.floor(Math.random() * posts.length);
+  let randomPost = posts[randomIndex];
+     
+  res.status(200).send(randomPost);
+})
+app.get("/api/color", (req, res) => {
+  const colors = ["red", "blue", "yellow", "green"];
+  let randomIndex = Math.floor(Math.random() * colors.length);
+  let randomColor = colors[randomIndex];
+     
+  res.status(200).send(randomColor);
+})
+app.get("/api/picture", (req, res) => {
+  const url = 'https://i.insider.com/602ee9d81a89f20019a377c6?width=1136&format=jpeg'
+  res.status(200).send(url)
+})
 
-const getPosts = (req, res) => {
-  res.status(200).send(posts)
-}
+// const getPosts = (req, res) => {
+//   res.status(200).send(posts)
+// }
 
-const createPost = (req, res) => {
-  let {name, text} =  req.body;
-  let newPost = {
-    id: globalId,
-    name,
-    text
-  }
-  posts.push(newPost)
-  res.status(200).send(posts)
-  globalId++
-}
+// const createPost = (req, res) => {
+//   let {name, text} =  req.body;
+//   let newPost = {
+//     id: globalId,
+//     name,
+//     text
+//   }
+//   posts.push(newPost)
+//   res.status(200).send(posts)
+//   globalId++
+// }
 
-const deletePost = (req, res) => {
-  let index = posts.findIndex((elem) => elem.id === +req.params.id);
-  posts.splice(index, 1);
-  res.status(200).send(posts);
-}
+// const deletePost = (req, res) => {
+//   let index = posts.findIndex((elem) => elem.id === +req.params.id);
+//   posts.splice(index, 1);
+//   res.status(200).send(posts);
+// }
 
-app.get("/api/posts", getPosts)
-app.post("/api/posts", createPost)
-app.delete("/api/posts/:id", deletePost)
+// app.get("/api/posts", getPosts)
+// app.post("/api/posts", createPost)
+// app.delete("/api/posts/:id", deletePost)
 
 app.listen(4000, () => console.log("Server running on 4000"));
